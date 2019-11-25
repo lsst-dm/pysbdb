@@ -1,0 +1,20 @@
+language: 
+        - python
+python: 
+        - 3.6
+        - 3.7
+    
+# command to install dependencies
+install:
+        - pip install -r requirements.txt
+     
+# command to run tests          
+script:
+       - pycodestyle pysbdb
+       - pytest --verbose --capture=no pysbdb 
+       - pip install .  
+#        | 
+#      cd pysbdb  
+#      python3 -c "import pyoorb; print('success.')"
+#    displayName: 'Test'
+        
