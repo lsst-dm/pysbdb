@@ -5,7 +5,7 @@ import json
 import requests
 
 
-class fetch_data:
+class query:
     #################################################
     #  LSST DM
     #
@@ -16,6 +16,12 @@ class fetch_data:
     #  S. Eggl 20191010
     #
     #################################################
+    def __init__(self):
+        try:
+           self.get_all('Ceres')
+        except("ValueError","TypeError"):
+           print('Could not connect to JPL database') 
+
     def get_all(tname):
         """Fetch all data of a minor planet at a given epoch from
         NASA JPL web API
