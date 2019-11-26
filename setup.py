@@ -17,7 +17,7 @@ with open(os.path.join(_here, 'pysbdb', 'pysbdb.py')) as f:
 
 setup(
     name='pysbdb',
-    version=version['__0.1__'],
+    version=version['__1.0__'],
     description=('Quick query of NASA JPL Small Body Database.'),
     long_description=long_description,
     author='Siegfried Eggl',
