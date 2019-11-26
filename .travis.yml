@@ -11,8 +11,9 @@ install:
 # command to run tests          
 script:
        - pycodestyle pysbdb
-       - pytest --verbose --capture=no pysbdb 
        - pip install .  
+
+#       - pytest --verbose --capture=no pysbdb 
 #        | 
 #      cd pysbdb  
 #      python3 -c "import pyoorb; print('success.')"

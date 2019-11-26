@@ -18,9 +18,9 @@ class query:
     #################################################
     def __init__(self):
         try:
-           self.get_all('Ceres')
-        except("ValueError","TypeError"):
-           print('Could not connect to JPL database') 
+            self.get_all('Ceres')
+        except("ValueError", "TypeError"):
+            print('Could not connect to JPL database.')
 
     def get_all(tname):
         """Fetch all data of a minor planet at a given epoch from
