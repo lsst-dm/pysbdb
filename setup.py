@@ -29,7 +29,6 @@ setup(
     install_requires=[
         'numpy',
         'requests'
-        'json'
     ],
 #   no scripts e
 #   scripts=['bin/a-script'],
