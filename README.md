@@ -1,4 +1,4 @@
-https://travis-ci.com/lsst-dm/pysbdb.svg?branch=master
+[![Build Status](https://travis-ci.com/lsst-dm/pysbdb.svg?branch=master)](https://travis-ci.com/lsst-dm/pysbdb)
 
 
 # pysbdb
