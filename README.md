@@ -1,3 +1,6 @@
+https://travis-ci.com/lsst-dm/pysbdb.svg?branch=master
+
+
 # pysbdb
 A python interface for NASA JPL Small Body Database Browser (
 https://ssd.jpl.nasa.gov/sbdb.cgi)
