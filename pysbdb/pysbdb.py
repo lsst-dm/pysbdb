@@ -4,6 +4,8 @@ import numpy as np
 import json
 import requests
 
+__all__ = ['query']
+
 
 class query:
     #################################################
@@ -22,6 +24,7 @@ class query:
         except("ValueError", "TypeError"):
             print('Could not connect to JPL database.')
 
+    @staticmethod
     def get_all(tname):
         """Fetch all data of a minor planet at a given epoch from
         NASA JPL web API
@@ -49,6 +52,7 @@ class query:
         ast = json.loads(r.text)
         return ast
 
+    @staticmethod
     def cometary_elements(tname):
         """Acquire cometary orbital elements of a minor planet at a given epoch
         from the NASA JPL web API
@@ -60,8 +64,8 @@ class query:
         Returns:
         --------
         [epoch (JD), cometary elements]
-        cometary elements ... [e,q(au),tp(JD),node(deg),peri(deg),inc(deg)]]
-
+        cometary elements ...[e,q(au),tp(JD),node(deg),peri(deg),inc(deg)]]
+                             (numpy array)
         Requires:
         ---------
         json, requests
@@ -101,8 +105,9 @@ class query:
             else:
                 elements.append(float(elem[i]['value']))
 
-        return [epoch_jd, elements]
+        return [epoch_jd, np.array(elements)]
 
+    @staticmethod
     def cometary_ele_cov(tname):
         """Acquire cometary orbital elements and the corresponding covariance
         matrix of a minor planet at a given epoch from NASA JPL's web API
@@ -116,6 +121,8 @@ class query:
         [epoch (JD),
         cometary elements: [e,q(au),tp(JD),node(deg),peri(deg),inc(deg)],
         [6x6 or 9x9 covariance matrix]]
+
+        elements and covariances are given in numpy arrays
 
         Requires:
         ---------
@@ -143,13 +150,14 @@ class query:
         for i in range(len(elem)):
             hdr.append(elem[i]['name'])
             val.append(float(elem[i]['value']))
-        elements = val
+        elements = np.array(val)
 
         # square root covariance matrix for cometary orbital elements
         mat = (np.array(ast['orbit']['covariance']['data'])).astype(float)
         # print(mat)
         return [epoch_jd, elements, mat]
 
+    @staticmethod
     def kepler_elements(tname):
         """Acquire Keplerian orbital elements of a minor planet
         at a given epoch from NASA JPL's web API

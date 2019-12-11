@@ -1,1 +1,3 @@
-from .version import __version__
+""" pysbdb v1.0 """
+
+from .pysbdb import *
