@@ -203,4 +203,4 @@ class query:
             else:
                 elements.append(float(elem[i]['value']))
 
-        return [epoch_jd, elements]
+        return [epoch_jd, np.array(elements)]
